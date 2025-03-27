@@ -8,7 +8,7 @@ xxxxxxxxxxxxxxx
 - responsive menu,
 - theme switcher.
 
-[View on GitPage](https://chrisnajman.github.io/simple-template)
+[View on GitPage](https://chrisnajman.github.io/faqs)
 
 ## JavaScript
 
