@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ page using an accessible accordion.">
+    <title>FAQS</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" type="module"></script>
+</head>
+
+<body class="flow">
+    <div id="loader" class="loader"><span class="visually-hidden">The page is loading...</span></div>
+    <span class="visually-hidden" aria-hidden="true" id="page-loaded"></span>
+    <a href="#main-content" class="element-invisible element-focusable skip-link">Skip to main content</a>
+
+    <div class="theme-toggler">
+        <p class="light">Light<span class="visually-hidden"> theme inactive</span></p><button type="button"
+            aria-pressed="true" aria-label="Toggle theme"><span></span></button>
+        <p class="dark">Dark<span class="visually-hidden"> theme active</span></p>
+    </div>
+
+    <header class="header">
+        <p class="h1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h2v2H4zm0 5h2v2H4zm0 5h2v2H4zm16-8V6H8.023v2H18.8zM8 11h12v2H8zm0 5h12v2H8z">
+                </path>
+            </svg>
+            <span>FAQS</span>
+        </p>
+
+        <!-- Primary Navigation -->
+        <div id="primary-navigation" class="primary-navigation">
+            <div class="hamburger-button-wrapper">
+                <p>Menu</p>
+                <button class="hamburger-button" id="hamburger-button" aria-controls="site-navigation"
+                    aria-expanded="false">
+                    <span id="btn-txt" class="visually-hidden">Expand menu</span>
+                    <svg class="lines" viewBox="0 0 100 100">
+                        <rect class="line top" y="28" x="10" rx="5"></rect>
+                        <rect class="line middle" y="47" x="10" rx="5"></rect>
+                        <rect class="line bottom" y="68" x="10" rx="5"></rect>
+                    </svg>
+                </button>
+            </div>
+            <nav id="site-navigation" class="menu-hidden">
+                <ul>
+                    <li><a href="./" aria-current="page">Page title #1</a></li>
+                    <li><a href="#">Page title #2</a></li>
+                    <li><a href="#">Page title #3</a></li>
+                    <li><a href="#">Page title #4</a></li>
+                    <li><a href="#">Page title #5</a></li>
+                    <li><a href="#">Page title #6</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- END Primary Navigation -->
+    </header>
+
+    <main class="main container" id="main-content">
+
+        <h1>Frequently Asked Questions</h1>
+        <p class="element">Element</p>
+
+    </main>
+
+    <footer class="footer">
+        <a href="https://github.com/chrisnajman/faqs" target="_blank" rel="noopener noreferrer" class="external-link">
+            GitHub Repository
+        </a>
+    </footer>
+
+</body>
+
+</html>
