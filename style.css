@@ -143,6 +143,7 @@ b {
 }
 
 blockquote {
+    position: relative;
     padding-inline: 1rem;
 
     quotes: "“" "”" "'" "'";
@@ -150,17 +151,21 @@ blockquote {
     &::before {
         content: open-quote;
         margin-inline-start: -1rem;
+        top: -12px;
     }
 
     &::after {
         content: close-quote;
         margin-inline-start: 100%;
+        top: calc(100% - 38px);
     }
 
     &::before,
     &::after {
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-family: auto;
+        position: absolute;
+        left: -2px;
     }
 }
 
