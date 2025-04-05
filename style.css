@@ -7,8 +7,9 @@
 
 :root {
     overflow-y: scroll;
-
+    color-scheme: light dark;
     --border-radius: 1.25rem;
+    --bold: 600;
 
     /* light mode (default) */
     --body-bg: #ccc;
@@ -30,7 +31,7 @@
 }
 
 body {
-    font-size: clamp(1rem, 0.8995rem + 0.4673vw, 1.25rem);
+    font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
     font-family: system-ui, sans-serif;
     background-color: var(--body-bg);
     color: var(--body-fg);
@@ -39,7 +40,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     line-height: 1.5;
-    margin-block-start: -1.25rem; /* counteracts margin block start on theme switcher */
+    position: relative;
 }
 
 .h1 {
@@ -55,9 +56,15 @@ body {
         width: 3.125rem;
         height: 3.125rem;
         fill: var(--body-fg);
+        background-color: var(--body-bg);
+        border-radius: 0.5rem;
+        align-self: flex-end;
     }
 }
 
+abbr {
+    text-underline-offset: 0.25em;
+}
 img {
     max-width: 100%;
     height: auto;
@@ -65,15 +72,15 @@ img {
 }
 
 p {
-    max-width: 30ch;
+    /* max-width: 30ch; */
+    text-wrap: pretty;
 }
 
 .h1,
 h1,
 h2,
-h3,
-p {
-    text-wrap: pretty;
+h3 {
+    text-wrap: balance;
 }
 
 .h1,
@@ -86,8 +93,16 @@ h3 {
 h1,
 h2,
 h3 {
-    font-size: clamp(1.25rem, 1.1495rem + 0.4673vw, 1.5rem);
     text-align: center;
+}
+
+h1,
+h2 {
+    font-size: clamp(1.25rem, 1.1495rem + 0.4673vw, 1.5rem);
+}
+
+h3 {
+    font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
 }
 
 button,
@@ -127,14 +142,46 @@ b {
     font-weight: 600;
 }
 
+blockquote {
+    padding-inline: 1rem;
+
+    quotes: "“" "”" "'" "'";
+
+    &::before {
+        content: open-quote;
+        margin-inline-start: -1rem;
+    }
+
+    &::after {
+        content: close-quote;
+        margin-inline-start: 100%;
+    }
+
+    &::before,
+    &::after {
+        font-size: 2.5rem;
+        font-family: auto;
+    }
+}
+
 code {
     font-family: "Courier New", Courier, monospace;
     font-weight: 900;
 }
 
+.external-link {
+    color: var(--link-blue);
+    text-underline-offset: 0.5em;
+
+    &::after {
+        color: var(--link-blue);
+        content: " \27F6";
+    }
+}
+
 .container {
     /* Locally-scoped CSS variables */
-    --_content-max-width: 81.25rem;
+    --_content-max-width: 800px;
     --_content-space-outside: 2rem;
 
     width: min(var(--_content-max-width), 100% - var(--_content-space-outside) * 2);
@@ -166,31 +213,81 @@ code {
     flex-direction: column;
     gap: 1rem;
     padding-block: 3rem;
-}
-.footer {
-    position: relative;
-    bottom: -1.25rem;
-
-    & a {
-        color: var(--link-blue);
-        text-underline-offset: 0.5em;
-
-        &::after {
-            color: var(--link-blue);
-            content: " \27F6";
-        }
-    }
+    margin-block-start: 0;
 }
 
 .main {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding-block: 3rem;
+    gap: 2.5rem;
+    padding-block: 2rem;
+}
 
-    /* temp style */
-    & h1 + p {
-        margin-inline: auto;
+/* FAQ */
+
+.faq {
+    & h2 {
+        display: inline;
+        font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
+        font-weight: var(--bold);
+        line-height: 1.2;
+    }
+
+    & details {
+        overflow: clip;
+        background-color: var(--el-bg);
+
+        border-block-end: 2px solid var(--body-bg);
+
+        &:first-child {
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-block-end: 0;
+        }
+    }
+
+    & summary {
+        color: var(--link-blue);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    & .summary-content {
+        padding: 0 2rem 1rem;
+
+        & p:last-child {
+            width: fit-content;
+            margin-inline-start: auto;
+        }
+
+        & ul {
+            list-style-type: disc;
+            padding-inline-start: inherit;
+        }
+    }
+}
+
+@media (width > 37.5rem) and (prefers-reduced-motion: no-preference) {
+    @supports (interpolate-size: allow-keywords) {
+        :root {
+            interpolate-size: allow-keywords;
+        }
+
+        details {
+            transition: height 0.5s ease;
+            height: 4rem;
+
+            &[open] {
+                height: auto;
+                overflow: clip;
+            }
+        }
     }
 }
 
@@ -203,11 +300,13 @@ code {
     align-items: center;
     gap: 0.625rem;
     padding: 0.3125rem 0.625rem;
+    margin-block-start: 0;
+    border: 0;
 
     & button {
         font-size: clamp(0.875rem, 0.8248rem + 0.2336vw, 1rem);
         font-family: inherit;
-        background-color: #0075ff;
+        background-color: var(--link-blue);
 
         width: 1.5625rem;
         height: 0.8125rem;
@@ -457,6 +556,7 @@ code {
     color: var(--body-fg);
     font-weight: 600;
     padding: 0.3125rem 0.625rem;
+    margin-block-start: 0;
     margin-inline-end: 0.625rem;
 }
 .element-invisible {

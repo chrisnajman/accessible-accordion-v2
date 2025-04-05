@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FAQ page using an accessible accordion.">
-    <title>FAQS</title>
+    <meta name="description"
+        content="An accessible FAQ accordion. The CSS enhances the 'details' element with a smooth height transition only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.">
+    <title>FAQ</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
@@ -31,42 +32,139 @@
                 <path d="M4 6h2v2H4zm0 5h2v2H4zm0 5h2v2H4zm16-8V6H8.023v2H18.8zM8 11h12v2H8zm0 5h12v2H8z">
                 </path>
             </svg>
-            <span>FAQS</span>
+            <span><abbr title="Frequently asked questions">FAQ</abbr></span>
         </p>
-
-        <!-- Primary Navigation -->
-        <div id="primary-navigation" class="primary-navigation">
-            <div class="hamburger-button-wrapper">
-                <p>Menu</p>
-                <button class="hamburger-button" id="hamburger-button" aria-controls="site-navigation"
-                    aria-expanded="false">
-                    <span id="btn-txt" class="visually-hidden">Expand menu</span>
-                    <svg class="lines" viewBox="0 0 100 100">
-                        <rect class="line top" y="28" x="10" rx="5"></rect>
-                        <rect class="line middle" y="47" x="10" rx="5"></rect>
-                        <rect class="line bottom" y="68" x="10" rx="5"></rect>
-                    </svg>
-                </button>
-            </div>
-            <nav id="site-navigation" class="menu-hidden">
-                <ul>
-                    <li><a href="./" aria-current="page">Page title #1</a></li>
-                    <li><a href="#">Page title #2</a></li>
-                    <li><a href="#">Page title #3</a></li>
-                    <li><a href="#">Page title #4</a></li>
-                    <li><a href="#">Page title #5</a></li>
-                    <li><a href="#">Page title #6</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- END Primary Navigation -->
     </header>
+
 
     <main class="main container" id="main-content">
 
         <h1>Frequently Asked Questions</h1>
-        <p class="element">Element</p>
 
+        <div class="faq">
+            <details name="faq">
+                <summary class="element">
+                    <h2>Why Is There Something Rather Than Nothing?</h2>
+                </summary>
+                <div class="summary-content element">
+                    <blockquote class="flow">
+                        <p>This is arguably the most fundamental question in philosophy. I once heard a respected
+                            philosopher say it was the <q>wrong question</q>, without proffering a <q>right
+                                question</q>. I
+                            thought
+                            this was a cop-out, not to mention a not-so-subtle evasion. But there are two major aspects
+                            to
+                            this question, and most attempted answers only address one.</p>
+                        <p>We inhabit a universe we believe to be around fourteen billion years old. Proto-human
+                            consciousness only came into being about six million years ago, with <i>Homo sapiens</i>
+                            arriving on the scene only very recently - roughly 200,000 years ago. But here's the thing:
+                            without a conscious entity to perceive the Universe, there might as well be nothing.</p>
+                        <p>Einstein famously said, <q>The most incomprehensible thing about the Universe is that it's
+                                comprehensible.</q> Many scientists, if not most, believe that the Universe and our
+                            status
+                            within
+                            it is a freak accident. Paul Davies in his erudite book <i>The Goldilocks Enigma</i> calls
+                            this interpretation <q>the absurd universe</q>. Their standard current answer to this enigma
+                            is
+                            that
+                            there are many, perhaps an infinite number of universes. If this is the case, then there are
+                            an
+                            infinite number of you and me. The multiverse hypothesis says that all possibilities are
+                            equally
+                            valid, which doesn't explain anything, except to say that the freak accident of our
+                            existence
+                            can only be understood within an endless sea of all possible existences. A number of
+                            physicists
+                            and cosmologists have further pointed out that there are constants pertaining to fundamental
+                            physical laws whose size permits complex life-forms to evolve. Even small variances in these
+                            numbers, up or down, could have made the Universe lifeless. And as the cosmologist John
+                            Barrow
+                            has pointed out, the Universe also needs to be of the mind-boggling scale we observe to
+                            allow
+                            time for complex life - meaning us - to evolve. Brandon Carter coined and defined two
+                            anthropic
+                            principles on the basis of these ideas. The <i>weak anthropic principle</i> says that only a
+                            universe that contains observers can be observed (which is a tautology). The <i>strong
+                                anthropic principle</i> says that only a universe that permits observers to emerge can
+                            <i>exist</i>. To be self-realised, a universe requires consciousness, otherwise it's
+                            effectively non-existent; in the same way that a lost manuscript by Shakespeare would be
+                            non-existent.
+                        </p>
+                    </blockquote>
+                    <p><a href="https://philosophynow.org/issues/125/Why_Is_There_Something_Rather_Than_Nothing"
+                            target="_blank" rel="noopener noreferrer" class="external-link">Source <span
+                                class="visually-hidden"> for 'Why Is
+                                There Something Rather Than Nothing?'</span></a></p>
+                </div>
+            </details>
+            <details name="faq">
+                <summary class="element">
+                    <h2>Why did Henry VIII execute Anne Boleyn?</h2>
+                </summary>
+                <div class="summary-content flow element">
+                    <blockquote class="flow">
+                        <p>Anne Boleyn, Queen Consort of England, was executed by a French swordsman at the Tower of
+                            London
+                            on 19th May 1536, just sixteen months after becoming Henry VII's second wife.</p>
+
+                        <p>So, how did this 35 year-old, spirited young woman fall so dramatically from favour? She had
+                            after all caught Henry's eye in the mid 1520s and moved successfully from mistress (although
+                            not
+                            in the full sense of the word) to queen. Henry VIII had been so besotted with her that he
+                            had
+                            waited for seven years for her and bombarded her with letters when she was removed from
+                            court,
+                            seventeen of which remain today, and yet this was a man who hated writing his own letters.
+                            He
+                            broke with Rome to have her, he fell out with men who had been his best friends and
+                            advisers, he
+                            had moved heaven and earth to possess Anne - how can such love and passion turn into a dark
+                            hatred which resulted in Henry ordering Anne to be executed?</p>
+
+                        <p>If you google "Why was Anne Boleyn executed?" or ask people, you'll get all kinds of
+                            answers:-
+                        </p>
+
+                        <ul class="flow">
+                            <li>She committed treason, adultery and incest</li>
+                            <li>She was a witch</li>
+                            <li>She had three breasts and an extra finger on one hand</li>
+                            <li>Henry had fallen in love with Jane Seymour and wanted rid of Anne</li>
+                            <li>There was a conspiracy - Thomas Cromwell wanted to get rid of her</li>
+                            <li>Henry needed a son and she had only given him a daughter and had miscarried twice</li>
+                            <li>She had hinted at Henry VIII's impotency and ridiculed him</li>
+                            <li>Her sharp tongue had made her many enemies who trumped up the charges</li>
+                            <li>She slept with 5 men, including her own brother</li>
+                            <li>She was wrecking Cromwell's plans for foreign policy</li>
+                        </ul>
+                    </blockquote>
+
+                    <p><a href="https://www.theanneboleynfiles.com/why-was-anne-boleyn-executed/" target="_blank"
+                            rel="noopener noreferrer" class="external-link">Source <span class="visually-hidden"> for
+                                'Why did Henry VIII
+                                execute Anne Boleyn?'</span></a></p>
+                </div>
+            </details>
+            <!-- template -->
+            <details name="faq">
+                <summary class="element">
+                    <h2>Why ... ?</h2>
+                </summary>
+                <div class="summary-content flow element">
+                    <blockquote class="flow">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis quia cumque suscipit
+                            magnam, repudiandae incidunt porro quos asperiores reprehenderit unde obcaecati, quisquam
+                            debitis. Fuga, similique adipisci in dignissimos consectetur nisi?</p>
+                    </blockquote>
+
+                    <p><a href="#" target="_blank" rel="noopener noreferrer" class="external-link">Source <span
+                                class="visually-hidden"> for
+                                'Why ...? </span></a></p>
+                </div>
+            </details>
+            <!-- end template -->
+
+        </div>
     </main>
 
     <footer class="footer">

@@ -1,23 +1,87 @@
-# FAQS (in progress)
+# FAQ
 
-xxxxxxxxxxxxxxx
+This CSS snippet enhances the `<details>` element with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.
 
 ## Features
 
+- **Responsive-aware**: Transitions are only applied on viewports wider than 37.5rem (600px), avoiding layout issues caused by wrapped `summary` text on smaller screens.
+- **Respects user preferences**: Honors `prefers-reduced-motion` to avoid animating for users who have motion reduction enabled.
+- **Feature detection**: Uses `@supports` to apply styles only if the browser supports the experimental `interpolate-size` property.
+- **Safe fallback**: Older browsers that don’t support modern syntax will ignore the transition block entirely, without affecting functionality.
+
+### Other
+
 - Loading animation,
-- responsive menu,
 - theme switcher.
 
+## How it works
+
+```CSS
+/*
+  Apply styles only when:
+  - The screen width is greater than 37.5rem (600px). (Note: 'width' is modern range syntax.)
+  - The user has not requested reduced motion
+*/
+@media (width > 37.5rem) and (prefers-reduced-motion: no-preference) {
+  /*
+    Check if the browser supports the experimental 'interpolate-size' property
+    (some browsers may ignore this block if they don't support it)
+  */
+    @supports (interpolate-size: allow-keywords) {
+    /*
+      Enable the 'interpolate-size' feature globally.
+      This is a proposed property allowing height/width interpolation on elements
+      like <details>, which normally don't transition well.
+    */
+        :root {
+            interpolate-size: allow-keywords;
+        }
+
+    /*
+      Target all <details> elements.
+      Apply a transition on the height property and set a fixed closed height.
+    */
+        details {
+            transition: height 0.5s ease;
+            height: 4rem; /* Set closed height */
+
+      /*
+        When the <details> element is open:
+        - Allow it to grow in height
+        - Use 'overflow: clip' to hide overflowing content while transitioning
+        (Note: 'overflow: clip' avoids scrollbars)
+      */
+            &[open] {
+                height: auto;
+                overflow: clip;
+            }
+        }
+    }
+}
+
+
+```
+
+---
+
+## Live Demo
+
 [View on GitPage](https://chrisnajman.github.io/faqs)
+
+---
 
 ## JavaScript
 
 Built with **vanilla ES6 JavaScript**, focusing on modern syntax and browser APIs.
 
-The JavaScript has been split into separate modules, improving code modularity:
+The JavaScript has been split into separate modules, improving code modularity.
 
-- `module-placeholder.js`: Empty module, imported into `index.js`.
-- `primary-navigation.js`: See [Accessibile Mobile Menu Git repository](https://github.com/chrisnajman/accessible-mobile-menu)
+### `ariaExpandedDetails()`
+
+- `aria-expanded-details.js`: This function ensures accessibility by dynamically updating the `aria-expanded` attribute on `<details>` elements, improving screen reader support for users with older or less capable assistive technologies. It listens for the `toggle` event to reflect the open/closed state, providing clearer communication for browsers or screen readers that may not fully support the native `<details>` behavior.
+
+### Other
+
 - `loader.js`: See [Loader Git repository](https://github.com/chrisnajman/loader)
 - `theme.js`: Handles theme toggling (light/dark mode) and local storage management.
 
