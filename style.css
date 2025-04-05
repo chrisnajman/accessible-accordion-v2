@@ -269,6 +269,7 @@ code {
         & p:last-child {
             width: fit-content;
             margin-inline-start: auto;
+            padding-block-start: 1.5rem;
         }
 
         & ul {
