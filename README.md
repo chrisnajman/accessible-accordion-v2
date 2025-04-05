@@ -20,6 +20,7 @@ An accessible FAQ accordion. This CSS snippet enhances the `<details>` element w
 /*
   Apply styles only when:
   - The screen width is greater than 37.5rem (600px). (Note: 'width' is modern range syntax.)
+    - (Adjust the width to your own requirements.)
   - The user has not requested reduced motion
 */
 @media (width > 37.5rem) and (prefers-reduced-motion: no-preference) {
