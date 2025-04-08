@@ -1,4 +1,4 @@
-# FAQ
+# Accessible Accordion V2
 
 An accessible FAQ accordion. This CSS snippet enhances the `<details>` element with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.
 
