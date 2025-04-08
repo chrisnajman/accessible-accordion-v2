@@ -142,33 +142,6 @@ b {
     font-weight: 600;
 }
 
-blockquote {
-    position: relative;
-    padding-inline: 1rem;
-
-    quotes: "“" "”" "'" "'";
-
-    &::before {
-        content: open-quote;
-        margin-inline-start: -1rem;
-        top: -12px;
-    }
-
-    &::after {
-        content: close-quote;
-        margin-inline-start: 100%;
-        top: calc(100% - 38px);
-    }
-
-    &::before,
-    &::after {
-        font-size: 3rem;
-        font-family: auto;
-        position: absolute;
-        left: -2px;
-    }
-}
-
 code {
     font-family: "Courier New", Courier, monospace;
     font-weight: 900;
@@ -228,9 +201,9 @@ code {
     padding-block: 2rem;
 }
 
-/* FAQ */
+/* Accordion */
 
-.faq {
+.accordion {
     padding: 0.5rem;
     background-color: var(--el-bg);
     border-radius: var(--border-radius);
@@ -267,17 +240,6 @@ code {
 
     & .summary-content {
         padding: 0 2rem 1rem;
-
-        & p:last-child {
-            width: fit-content;
-            margin-inline-start: auto;
-            padding-block-start: 1.5rem;
-        }
-
-        & ul {
-            list-style-type: disc;
-            padding-inline-start: inherit;
-        }
     }
 }
 

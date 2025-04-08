@@ -1,5 +1,5 @@
 export default function themeSwitcher() {
-  const LOCAL_STORAGE_PREFIX = "FAQ"
+  const LOCAL_STORAGE_PREFIX = "accordion-v2"
   const THEME_KEY = `${LOCAL_STORAGE_PREFIX}-theme`
 
   const themeToggler = document.querySelector(".theme-toggler")
