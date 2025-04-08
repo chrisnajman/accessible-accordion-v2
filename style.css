@@ -60,6 +60,10 @@ body {
         border-radius: 0.5rem;
         align-self: flex-end;
     }
+
+    & span {
+        text-align: center;
+    }
 }
 
 abbr {
