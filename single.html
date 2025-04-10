@@ -52,20 +52,39 @@
         <div class="accordion">
             <details>
                 <summary class="element">
-                    <h2>Title</h2>
+                    <h2>Introduction</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <p>This accessible accordion is built with the <code>details</code> element:</p>
+
+                    <p>
+                    <pre><code>
+&lt;details&gt;
+    &lt;summary&gt;
+      Title
+    &lt;/summary&gt;
+    &lt;p&gt;
+      Content...
+    &lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+                    </p>
+
+                    <h3>Notes</h3>
+                    <ul class="flow">
+                        <li>To enable multiple accordions, add the same <code>name</code> attribute to each of the
+                            <code>details</code> tags,
+                            e.g. <code>name=&quot;accordion&quot;</code>. When any accordion opens, any currently open
+                            accordion will
+                            close.
+                        </li>
+                        <li>Hardcode <code>open</code> on any <code>details</code> element to have that accordion
+                            open on page load,
+                            i.e. <code>&lt;details open&gt;</code>.</li>
+                        <li>Accordions can be nested.</li>
+                    </ul>
                 </div>
+            </details>
         </div>
     </main>
 
