@@ -129,26 +129,17 @@ a {
     }
 }
 
-ul {
-    list-style-type: "";
-    padding-inline-start: 0;
-
-    & ul {
-        padding-inline-start: 1.5rem;
-
-        & ul {
-            list-style-type: disc;
-        }
-    }
+b,
+strong {
+    font-weight: var(--bold);
 }
 
-b {
-    font-weight: 600;
+pre {
+    overflow-x: auto;
 }
-
 code {
     font-family: "Courier New", Courier, monospace;
-    font-weight: 900;
+    /* font-weight: var(--bold); */
 }
 
 .external-link {
@@ -253,6 +244,11 @@ code {
         line-height: 1.2;
     }
 
+    & h3 {
+        text-align: left;
+        font-weight: var(--bold);
+    }
+
     & details {
         overflow: clip;
         background-color: var(--el-bg);
@@ -277,7 +273,12 @@ code {
     }
 
     & .summary-content {
-        padding: 0 2rem 1rem;
+        padding: 0 1rem 1rem;
+    }
+
+    ul,
+    ol {
+        padding-inline-start: 1.25rem;
     }
 }
 

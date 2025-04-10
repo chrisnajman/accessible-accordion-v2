@@ -50,89 +50,180 @@
         <h1>Accordion (Multiple Items)</h1>
 
         <div class="accordion">
-            <details name="accordion">
+            <details name="accordion" open>
                 <summary class="element">
-                    <h2>Title #1</h2>
+                    <h2>Introduction</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <p>These accessible accordions are built with the <code>details</code> element:</p>
+
+                    <p>
+                    <pre><code>
+&lt;details&gt;
+    &lt;summary&gt;
+      Title
+    &lt;/summary&gt;
+    &lt;p&gt;
+      Content...
+    &lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+                    </p>
+
+                    <h3>Notes</h3>
+                    <ul class="flow">
+                        <li>To enable multiple accordions, add the same <code>name</code> attribute to each of the
+                            <code>details</code> tags,
+                            e.g. <code>name=&quot;accordion&quot;</code>. When any accordion opens, any currently open
+                            accordion will
+                            close.
+                        </li>
+                        <li>Hardcode <code>open</code> on any <code>details</code> element to have that accordion
+                            open on page load,
+                            i.e. <code>&lt;details open&gt;</code>.</li>
+                        <li>Accordions can be nested.</li>
+                    </ul>
                 </div>
             </details>
+
+
             <details name="accordion">
                 <summary class="element">
-                    <h2>Title #2</h2>
+                    <h2>Features</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <ul class="flow">
+                        <li><strong>Responsive-aware</strong>: Transitions are only applied on viewports wider than
+                            37.5rem (600px),
+                            avoiding
+                            layout issues caused by wrapped <code>summary</code> text on smaller screens.</li>
+                        <li><strong>Respects user preferences</strong>: Honors <code>prefers-reduced-motion</code> to
+                            avoid animating
+                            for
+                            users who have motion reduction enabled.</li>
+                        <li><strong>Feature detection</strong>: Uses <code>@supports</code> to apply styles only if the
+                            browser supports
+                            the
+                            experimental <code>interpolate-size</code> property.</li>
+                        <li><strong>Safe fallback</strong>: Older browsers that don't support modern syntax will ignore
+                            the transition
+                            block
+                            entirely, without affecting functionality.</li>
+                    </ul>
                 </div>
             </details>
+
+
+
             <details name="accordion">
                 <summary class="element">
-                    <h2>Title #3</h2>
+                    <h2>CSS Transition</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <p>The CSS snippet enhances the accordions
+                        with a smooth height transition - but only when it&#39;s safe and supported. It uses modern CSS
+                        features with
+                        progressive enhancement in mind.</p>
+                    <p>Styles are applied only when:</p>
+                    <ul class="flow">
+                        <li>The screen width is greater than <code>37.5rem (600px)</code>. (Note: <code>width</code> is
+                            modern range
+                            syntax.)
+                        </li>
+                        <li>The user has not requested reduced motion.</li>
+                        <li>The browser supports the experimental <code>interpolate-size</code> property
+                            (some browsers may ignore this block if they don't support it).</li>
+                    </ul>
+
+                    <p>If the browser does support it, <code>interpolate-size</code> is applied globally with a value of
+                        <code>allow-keywords</code>. (his is a proposed property allowing height/width interpolation on
+                        elements
+                        like &lt;details&gt;, which normally don't transition well.)
+                    </p>
+                    <p>This allows a transition from <code>height: [n]</code> to <code>height: auto</code>.</p>
                 </div>
             </details>
+
+
+
             <details name="accordion">
                 <summary class="element">
-                    <h2>Title #4</h2>
+                    <h2>JavaScript</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <h3><code>ariaExpandedDetails()</code></h3>
+
+                    <p>
+                        This function ensures accessibility by dynamically
+                        updating the
+                        <code>aria-expanded</code> attribute on <code>details</code> elements, improving screen reader
+                        support
+                        for
+                        users with older or less capable assistive technologies. It listens for the <code>toggle</code>
+                        event to reflect
+                        the
+                        open/closed state, providing clearer communication for browsers or screen readers that may not
+                        fully support the
+                        native <code>details</code> behavior.
+                    </p>
+
                 </div>
             </details>
+
+
+
+
             <details name="accordion">
                 <summary class="element">
-                    <h2>Title #5</h2>
+                    <h2>Accessibility</h2>
                 </summary>
-                <div class="summary-content element">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis delectus doloremque eaque
-                        molestias architecto nemo dolorem sapiente praesentium, minima maiores!</p>
-                    <p>Architecto perspiciatis alias, voluptates enim tempora explicabo odit qui magni exercitationem
-                        natus, dolorem ex. Iste sint nihil nemo quos voluptatum?</p>
-                    <p>Esse inventore tempore sint ipsa, consequatur doloribus sed aut fugiat error et labore nulla
-                        autem earum, tempora tenetur deleniti voluptatem?</p>
-                    <p>Magnam, a neque obcaecati alias libero quisquam quis delectus id vel laboriosam nobis ab nesciunt
-                        minus cum velit distinctio. Eius.</p>
-                    <p>Molestias laborum suscipit hic! Mollitia quis recusandae blanditiis placeat alias tempore error
-                        quae at enim, perspiciatis suscipit quos sed aliquid?</p>
+                <div class="summary-content element flow">
+                    <ul class="flow">
+                        <li>The site is fully navigable using tab keys and up/down arrows.</li>
+                        <li>ARIA attributes are dynamically added to the <code>details</code> element to signal whether
+                            it is
+                            open or
+                            closed.
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details name="accordion">
+                <summary class="element">
+                    <h2>Testing and Compatibility</h2>
+                </summary>
+                <div class="summary-content element flow">
+                    <p>The application has been tested on the following platforms and browsers:</p>
+                    <ul class="flow">
+                        <li><strong>Operating System</strong>: Windows 10</li>
+                        <li><strong>Browsers</strong>:<ul>
+                                <li>Google Chrome</li>
+                                <li>Mozilla Firefox</li>
+                                <li>Microsoft Edge</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Device View Testing</h3>
+                    <p>The layout and functionality have been verified in both browser and device simulation views to
+                        ensure
+                        responsiveness
+                        and usability.</p>
+                </div>
+            </details>
+
+            <details name="accordion">
+                <summary class="element">
+                    <h2>How to Run</h2>
+                </summary>
+                <div class="summary-content element flow">
+                    <ol>
+                        <li>Clone or download the repository to your local machine.</li>
+                        <li>Open the project folder and start a simple HTTP server (e.g., using <code>Live Server</code>
+                            in VS Code or
+                            Python&#39;s <code>http.server</code> module).</li>
+                        <li>Open the project in a modern browser (e.g., Chrome, Firefox, or Edge).</li>
+                    </ol>
                 </div>
             </details>
         </div>
