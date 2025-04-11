@@ -1,6 +1,6 @@
 # Accessible Accordion V2
 
-Accessible accordions built with the `<details>` element. The CSS snippet enhances the accordions with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.
+Accessible accordions built with the `<details>` element.
 
 > [!NOTE]
 > To enable multiple accordions add the same `name` attribute to each of the `details` tags, e.g. `name="accordion"`. When any accordion opens, any currently open accordion will close.
@@ -24,7 +24,9 @@ Accessible accordions built with the `<details>` element. The CSS snippet enhanc
 - Responsive menu,
 - theme switcher.
 
-## How it works
+## CSS Transition
+
+The CSS snippet enhances the accordions with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.
 
 ```CSS
 /*
