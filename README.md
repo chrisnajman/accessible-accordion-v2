@@ -1,12 +1,15 @@
 # Accessible Accordion V2
 
-Accessible accordions built with the `<details>` element. The CSS snippet enhances the accordions with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind. There are two pages, one showing multiple and one showing a single accordion.
+Accessible accordions built with the `<details>` element. The CSS snippet enhances the accordions with a smooth height transition - but only when it's safe and supported. It uses modern CSS features with progressive enhancement in mind.
 
 > [!NOTE]
 > To enable multiple accordions add the same `name` attribute to each of the `details` tags, e.g. `name="accordion"`. When any accordion opens, any currently open accordion will close.
 
 > [!NOTE]
 > Hardcode `open` on any `<details>` element to have that accordion open on page load, i.e. `<details open>`.
+
+> [!NOTE]
+> Accordions can be nested.
 
 ## Features
 
