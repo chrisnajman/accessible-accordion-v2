@@ -37,7 +37,21 @@
             <span>Accessible Accordion V2</span>
         </p>
         <div id="primary-navigation" class="primary-navigation">
-            <nav>
+            <div class="hamburger-button-wrapper">
+                <p>Menu</p>
+                <button class="hamburger-button" id="hamburger-button" aria-controls="site-navigation"
+                    aria-expanded="false">
+                    <span id="btn-txt" class="visually-hidden">Expand menu</span>
+                    <svg class="lines" viewBox="0 0 100 100">
+                        <rect class="line top" y="28" x="10" rx="5"></rect>
+                        <rect class="line middle" y="47" x="10" rx="5"></rect>
+                        <rect class="line bottom" y="68" x="10" rx="5"></rect>
+                    </svg>
+                </button>
+            </div>
+
+
+            <nav id="site-navigation" class="menu-hidden">
                 <ul>
                     <li><a href="./" aria-current="page">Multiple (open)</a></li>
                     <li><a href="./multiple-closed.html">Multiple (closed)</a></li>

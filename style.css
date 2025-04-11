@@ -8,6 +8,7 @@
 :root {
     overflow-y: scroll;
     color-scheme: light dark;
+    --animation-timing: 250ms;
     --border-radius: 1.25rem;
     --bold: 600;
 
@@ -199,9 +200,33 @@ code {
 }
 
 .primary-navigation {
+    position: relative;
     & nav {
         width: fit-content;
         margin-inline: auto;
+
+        @media screen and (width <= 31.25rem) {
+            &.menu-hidden,
+            &.menu-visible {
+                margin-inline: auto;
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: grid-template-rows var(--animation-timing) ease-in;
+
+                & > ul {
+                    overflow: hidden;
+                }
+            }
+
+            &.menu-visible {
+                grid-template-rows: 1fr;
+                width: 100%;
+
+                & > ul {
+                    padding-block-start: 3rem;
+                }
+            }
+        }
     }
 
     & ul {
@@ -212,6 +237,12 @@ code {
         width: fit-content;
         margin-inline: auto;
         padding-inline-start: 0;
+
+        @media screen and (width <= 31.25rem) {
+            flex-direction: column;
+            gap: 0;
+            z-index: 300;
+        }
     }
     & a {
         color: var(--link-blue);
@@ -222,14 +253,90 @@ code {
         cursor: pointer;
         text-decoration: none;
 
+        @media screen and (width <= 31.25rem) {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
         &[aria-current="page"],
         &:hover {
             border-block-end: 0.3125rem solid var(--body-bg);
             color: var(--body-fg);
+
+            @media screen and (width <= 31.25rem) {
+                border: 0;
+            }
         }
 
         &[aria-current="page"] {
             pointer-events: none;
+        }
+    }
+
+    @media screen and (width <= 31.25rem) {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.hamburger-button-wrapper {
+    display: none;
+}
+
+@media screen and (width <= 31.25rem) {
+    .hamburger-button-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-inline: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        & p {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-block-start: -0.3125rem;
+            margin-inline-start: auto;
+        }
+    }
+
+    .hamburger-button {
+        cursor: pointer;
+        width: 3.125rem;
+        background-color: transparent;
+        border: 0;
+
+        & .line {
+            width: 80%;
+            height: 0.625rem;
+            fill: var(--body-fg);
+            transition:
+                y var(--animation-timing) ease-in var(--animation-timing),
+                rotate var(--animation-timing) ease-in,
+                opacity 0ms var(--animation-timing);
+            transform-origin: center;
+        }
+
+        &[aria-expanded="true"] .line {
+            transition:
+                y var(--animation-timing) ease-in,
+                rotate var(--animation-timing) ease-in var(--animation-timing),
+                opacity 0ms var(--animation-timing);
+        }
+        &[aria-expanded="true"] :is(.top, .bottom) {
+            y: 2.9375rem;
+        }
+        &[aria-expanded="true"] .top {
+            rotate: 45deg;
+        }
+        &[aria-expanded="true"] .bottom {
+            rotate: -45deg;
+        }
+        &[aria-expanded="true"] .middle {
+            opacity: 0;
         }
     }
 }
