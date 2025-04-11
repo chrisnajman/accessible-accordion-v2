@@ -271,6 +271,10 @@ code {
 
         &[aria-current="page"] {
             pointer-events: none;
+
+            @media screen and (width <= 31.25rem) {
+                font-weight: var(--bold);
+            }
         }
     }
 
