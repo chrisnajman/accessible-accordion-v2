@@ -21,6 +21,7 @@ Accessible accordions built with the `<details>` element. The CSS snippet enhanc
 ### Other
 
 - Loading animation,
+- Responsive menu,
 - theme switcher.
 
 ## How it works
@@ -92,7 +93,8 @@ The JavaScript has been split into separate modules, improving code modularity.
 
 ### Other
 
-- `loader.js`: See [Loader Git repository](https://github.com/chrisnajman/loader)
+- `loader.js`: See [Loader Git repository](https://github.com/chrisnajman/loader).
+- `primary-navigation.js` and `hamburger-button.js`: See [Accessibile Mobile Menu Git repository](https://github.com/chrisnajman/accessible-mobile-menu)
 - `theme.js`: Handles theme toggling (light/dark mode) and local storage management.
 
 ---
