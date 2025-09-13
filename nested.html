@@ -90,11 +90,9 @@
 
                     <h3>Notes</h3>
                     <ul class="flow">
-                        <li>To enable multiple accordions, add the same <code>name</code> attribute to each of the
-                            <code>details</code> tags,
-                            e.g. <code>name=&quot;accordion&quot;</code>. When any accordion opens, any currently open
-                            accordion will
-                            close.
+                        <li>To enable multiple accordions, add the <code>data-group</code> attribute, e.g.
+                            <code>data-group="accordion"</code>. When any <code>&lt;details&gt;</code> in a group opens,
+                            any others in the same group automatically close.
                         </li>
                         <li>Hardcode <code>open</code> on any <code>details</code> element to have that accordion
                             open on page load,
@@ -104,7 +102,8 @@
                 </div>
 
                 <div class="nested">
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>Features</h3>
                         </summary>
@@ -135,7 +134,8 @@
                         </div>
                     </details>
 
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>CSS Transition</h3>
                         </summary>
@@ -168,7 +168,8 @@
                         </div>
                     </details>
 
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>JavaScript</h3>
                         </summary>
@@ -195,7 +196,8 @@
                         </div>
                     </details>
 
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>Accessibility</h3>
                         </summary>
@@ -212,7 +214,8 @@
                         </div>
                     </details>
 
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>Testing and Compatibility</h3>
                         </summary>
@@ -236,7 +239,8 @@
                         </div>
                     </details>
 
-                    <details name="accordion">
+                    <details data-group="accordion">
+
                         <summary class="element">
                             <h3>How to Run</h3>
                         </summary>

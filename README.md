@@ -3,7 +3,7 @@
 Accessible accordions built with the `<details>` element.
 
 > [!NOTE]
-> To enable multiple accordions add the same `name` attribute to each of the `details` tags, e.g. `name="accordion"`. When any accordion opens, any currently open accordion will close.
+> To enable multiple accordions, add the `data-group` attribute, e.g. `data-group="accordion"`. When any `<details>` in a group opens, any others in the same group automatically close.
 
 > [!NOTE]
 > Hardcode `open` on any `<details>` element to have that accordion open on page load, i.e. `<details open>`.
