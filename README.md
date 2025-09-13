@@ -89,9 +89,15 @@ Built with **vanilla ES6 JavaScript**, focusing on modern syntax and browser API
 
 The JavaScript has been split into separate modules, improving code modularity.
 
-### `ariaExpandedDetails()`
-
-- `aria-expanded-details.js`: This function ensures accessibility by dynamically updating the `aria-expanded` attribute on `<details>` elements, improving screen reader support for users with older or less capable assistive technologies. It listens for the `toggle` event to reflect the open/closed state, providing clearer communication for browsers or screen readers that may not fully support the native `<details>` behavior.
+- `details.js`: Handles `<details>` accessibility and behavior.
+  - Syncs `aria-expanded` between `<summary>` and `<details>`.
+  - Closes dropdowns when clicking outside navigation.
+  - Supports closing via the `Escape` key and restores focus.
+  - Implements grouped accordion behavior using the `data-group` attribute: when one `<details>` in a group opens, any others in the same group automatically close.
+- `hamburger-button.js`: Toggles the mobile navigation menu.
+  - Updates `aria-expanded` on the button.
+  - Switches between hidden/visible menu states.
+  - Updates the visually hidden text for screen readers.
 
 ### Other
 

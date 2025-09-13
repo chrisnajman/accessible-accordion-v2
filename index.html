@@ -165,27 +165,30 @@
 
 
             <details data-group="accordion">
-
                 <summary class="element">
                     <h2>JavaScript</h2>
                 </summary>
                 <div class="summary-content element flow">
-                    <h3><code>ariaExpandedDetails()</code></h3>
-
-                    <p>
-                        This function ensures accessibility by dynamically
-                        updating the
-                        <code>aria-expanded</code> attribute on <code>details</code> elements, improving screen reader
-                        support
-                        for
-                        users with older or less capable assistive technologies. It listens for the <code>toggle</code>
-                        event to reflect
-                        the
-                        open/closed state, providing clearer communication for browsers or screen readers that may not
-                        fully support the
-                        native <code>details</code> behavior.
-                    </p>
-
+                    <ul>
+                        <li><code>details.js</code>: Handles <code>&lt;details&gt;</code> accessibility and behavior.
+                            <ul>
+                                <li>Syncs <code>aria-expanded</code> between <code>&lt;summary&gt;</code> and
+                                    <code>&lt;details&gt;</code>.
+                                </li>
+                                <li>Closes dropdowns when clicking outside navigation.</li>
+                                <li>Supports closing via the <code>Escape</code> key and restores focus.</li>
+                                <li>Implements grouped accordion behavior using the <code>data-group</code> attribute:
+                                    when one <code>&lt;details&gt;</code> in a group opens, any others in the same group
+                                    automatically close.</li>
+                            </ul>
+                        </li>
+                        <li><code>hamburger-button.js</code>: Toggles the mobile navigation menu.<ul>
+                                <li>Updates <code>aria-expanded</code> on the button.</li>
+                                <li>Switches between hidden/visible menu states.</li>
+                                <li>Updates the visually hidden text for screen readers.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </details>
 
