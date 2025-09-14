@@ -1,0 +1,21 @@
+.no-js {
+    & .theme-toggler,
+    & .hamburger-button-wrapper,
+    & .loader,
+    & .loader::after {
+        display: none;
+    }
+
+    & .primary-navigation {
+        & nav {
+            @media screen and (width <= 31.25rem) {
+                &.menu-hidden,
+                &.menu-visible {
+                    & > ul {
+                        overflow: visible;
+                    }
+                }
+            }
+        }
+    }
+}
